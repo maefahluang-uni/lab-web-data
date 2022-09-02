@@ -53,7 +53,9 @@ This configuration define an persistence unit called `entdev.parolee`. It is con
 This step will guide you to create a unit test that read/update/delete data on the database through JPA. 
 
 In Unit Test, There are 3 types of method 1) `Before` method, 2)`Test` method and 3)`After` method.
-The `Before` method runs before all `Test` methods runs. The `After` method run after all `Test` methods is complete.
+The `Before` method runs before each `Test` methods run. The `After` method run after each `Test` methods is complete. You may study more details at [Junit Tutorial](https://www.javatpoint.com/junit-tutorial)
+
+Let's modify `ParoleeTest.java` (under `src/test/java`)
 
 `initialiseDatabase()` is a `Before` method as you see it is annotated with `@Before`. This method helps to create schema and insert some sample data to database for testing. This will be done according to script `db-init.sql` (can be found under `/src/main/resources`). In addition to this, we need to initialise `EntityManagerFactory` in this method by inserting the code below in this method.
 
@@ -112,9 +114,9 @@ em.getTransaction().commit();
 :eyeglasses: :eyeglasses: :eyeglasses: You should study at the code in `deleteParolee()` and `updateParolee()`, which shows how we remove a record using `em.remove()` and update record using `em.merge()`. We may use these in other lab.
 
 #### (d) Build and Run
-You can simply run unit-testing `ParoleeTesting` using `Run As> Junit Test` option in Eclipse. The unit test should be all green. :green_heart: :green_heart: :green_heart:
+You can simply run unit-testing `ParoleeTest` using `Run As> Junit Test` option in Eclipse. The unit test should be all green. :green_heart: :green_heart: :green_heart:
 
-You can also run maven `verify` as usual, which will call `ParoleeTesting` to run.
+You can also run maven `verify` as usual, which will call `ParoleeTest` to run.
 
 
 
