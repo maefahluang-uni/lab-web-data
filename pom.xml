@@ -19,9 +19,8 @@
     </properties>
 
     <modules>
-        <module>lab-jpa-concert</module>
-        <module>lab-jpa-database</module>
-        <module>lab-jpa-parolee</module>
+        <module>lab-concert-database</module>
+        <module>lab-parolee-database</module>
     </modules>
 
     <dependencies>
