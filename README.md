@@ -170,3 +170,48 @@ Useful resources for H2  include the H2 website:
 <http://www.h2database.com/html/main.html>
 
 From here, you can download the H2 Console for your own machines. The website also has useful information, e.g. the SQL grammar for H2.
+
+
+##### Reference: Use of an EntityManager	
+In implementing the `Resource` class' handler methods, you'll need to use the `EntityManager`. The typical usage pattern for `EntityManager` is shown below. Particular `EntityManager` methods that will be useful for this task include:
+
+- `find(Class, primary-key)`. `find()` looks up an object in the database based on the type of object and primary-key value arguments. If a match is found, this method returns an object of the specified type and with the given primary key. If there's no match the method returns `null`.
+
+- `persist(Object)`. This persists a new object in the database when the enclosing transaction commits.
+
+- `merge(Object)`. A `merge()` call updates an object in the database. When the enclosing transaction commits, the database is updated based on the state of the in-memory object to which the `merge()` call applies.
+
+- `remove(Object)`. This deletes an object from the database when the transaction commits.
+
+For this task, the above `EntityManager` methods are sufficient. The `EntityManager` interface will be discussed in more detail this week; for more information in the meantime consult the Javadoc for `javax.persistence.EntityManager` (<https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html>).
+
+A simple JPQL query to return all `Concert`s might be useful for this task, and this can be expressed simply as:
+
+```java
+EntityManager em = PersistenceManager.instance().createEntityManager();
+TypedQuery<Concert> concertQuery = em.createQuery("select c from Concert c", Concert.class);
+List<Concert> concerts = concertQuery.getResultList();
+```
+
+
+###### EntityManager usage scenario
+
+```java
+// Acquire an EntityManager (creating a new persistence context).
+EntityManager em = PersistenceManager.instance().createEntityManager();
+try {
+    
+    // Start a new transaction.
+    em.getTransaction().begin();
+    
+    // Use the EntityManager to retrieve, persist or delete object(s).
+    // Use em.find(), em.persist(), em.merge(), etc...
+    
+    // Commit the transaction.
+    em.getTransaction().commit();
+    
+} finally {
+    // When you're done using the EntityManager, close it to free up resources.
+    em.close();
+}
+```
