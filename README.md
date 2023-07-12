@@ -17,7 +17,7 @@ The project is a simple Maven project using JPA / Hibernate to enable the persis
 
 The project is a simple Maven project that includes the following key artifacts:
 
-- Domain classes `Concert` and `Performer`. `Concert` in (package `lab.concert.app.domain`) has a unique ID, a title, a date and one `Performer`. `Performer` has a unique ID, a name, image file and `Genre`. A `Performer` can feature in many `Concert`s, hence there's a one-to-many relationship between `Performer` and `Concert`. The relationship is unidirectional, from `Concert` to `Performer`.
+- Domain classes `Concert` and `Performer` in (package `lab.concert.app.domain`). `Concert`  has a unique ID, a title, a date and one `Performer`. `Performer` has a unique ID, a name, image file and `Genre`. A `Performer` can feature in many `Concert`s, hence there's a one-to-many relationship between `Performer` and `Concert`. The relationship is unidirectional, from `Concert` to `Performer`.
 
 ![relationship](lab-data-relationship.png)
 
