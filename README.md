@@ -37,7 +37,11 @@ Important things to consider:
 
 - For Id of both entity The pre-defined database in `db-init.sql` uses `AUTO_INCREMENT` to automatically generate and assign valid IDs to newly persisted entities. To force Hibernate to utilize the `AUTO_INCREMENT` functionality rather than its own generation strategy, we can set the `strategy` property of the `@GeneratedValue` annotation to `GenerationType.IDENTITY`.
 
-#### (b) Run the unit tests
+#### (b) Develop Repository
+For this task, complete the `ConcertRepository` class. This interface is a Spring Data repository that uses JPA to access the database. It should extend CrudRepository, and should define a single method `findByTitle()` that returns a `Concert` given its title.
+
+
+#### (c) Run the unit tests
 Once you've annotated your classes, simply run the unit tests from your IDE (there is no need to run a Maven goal for this project, as we are not running integration tests which require an active server). 
 
 The unit test `ConcertRepositryTests` is complete, so you do not need to modify it.:smile_cat::smile_cat::smile_cat:  

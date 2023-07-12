@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import lab.concert.app.domain.Concert;
 
-public interface ConcertRepository extends CrudRepository<Concert, Long> {
+//TODO: add appropriate code to extend CrudRepository
+public interface ConcertRepository  {
       
 }
