@@ -1,4 +1,4 @@
-package lab.concert.app;
+package lab.concert.app.domain;
 
 
 
