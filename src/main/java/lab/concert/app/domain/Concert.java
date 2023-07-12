@@ -13,16 +13,15 @@ import java.time.LocalDateTime;
  * Hence, in a List, Concert instances can be sorted into alphabetical order
  * based on their title value.
  */
-@Entity
+//TODO: Add annotations to map this class to the database
 public class Concert {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   //TODO: Add annotations 
     private Long id;
     private String title;
     private LocalDateTime date;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    //TODO: Add annotations to map relationship
     private Performer performer;
 
     public Concert(Long id, String title, LocalDateTime date, Performer performer) {
