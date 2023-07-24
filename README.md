@@ -35,7 +35,7 @@ Important things to consider:
 
 - The relationship between the two entities is as follows. Each `Concert` only has one performer. Each `Performer` may perform in any number of concerts. The only field in the Java classes describing this relationship is the `performer` field in `Concert`. Please place proper annotation  on this field to describe the relationship.
 
-- For Id of both entity The pre-defined database in `db-init.sql` uses `AUTO_INCREMENT` to automatically generate and assign valid IDs to newly persisted entities. To force Hibernate to utilize the `AUTO_INCREMENT` functionality rather than its own generation strategy, we can set the `strategy` property of the `@GeneratedValue` annotation to `GenerationType.IDENTITY`.
+- For Id of both entity The pre-defined database in `data.sql` uses `AUTO_INCREMENT` to automatically generate and assign valid IDs to newly persisted entities. To force Hibernate to utilize the `AUTO_INCREMENT` functionality rather than its own generation strategy, we can set the `strategy` property of the `@GeneratedValue` annotation to `GenerationType.IDENTITY`.
 
 #### (b) Develop Repository
 For this task, complete the `ConcertRepository` class. This interface is a Spring Data repository that uses JPA to access the database. It should extend CrudRepository, and should define a single method `findByTitle()` that returns a `Concert` given its title.
